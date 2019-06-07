@@ -6,10 +6,13 @@ Users of the app should be able to find, create, read and update the knowledge b
 ###
 This KB is specifically tailored for [Unum](https://en.wikipedia.org/wiki/Unum) an S&P 500 company that sells insurance.
 # To develop the app 🚀
- '''
+ ```
 npm run develop
-yarn start # Alternative
- '''
+ ```
+ Or you can use yarn instead.
+ ```
+yarn start
+ ```
 
 ## Tech stack
 
