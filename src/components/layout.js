@@ -42,6 +42,7 @@ const Layout = ({ children }) => (
             <a href="https://en.wikipedia.org/wiki/Unum" rel="no_reffer">
               {data.site.siteMetadata.title}
             </a>
+            <hr />
             <p>
               {data.site.siteMetadata.description}
             </p>

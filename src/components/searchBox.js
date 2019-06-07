@@ -17,7 +17,11 @@ const SearchBox = () => (
             paddingTop: 0,
         }}
     >
-        <h1>Search</h1>
+        <h1 style={{
+            color: "red"
+        }}
+        >Search, make me useful pls
+        </h1>
 
     </div>
 )

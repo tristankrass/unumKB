@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "gatsby";
 
 
-const Article = ({ title, desc, tags, publishDate, author }) => {
+const Article = ({ title, desc, tags, publishDate, author, slug }) => {
 
     return (
         <section>
-            <h1>
-                {title}
-            </h1>
+            <Link to={`documentation/${slug}`}>
+                <h1>
+                    {title}
+                </h1>
+            </Link>
             <p>
                 {desc}
             </p>
@@ -20,8 +23,5 @@ const Article = ({ title, desc, tags, publishDate, author }) => {
         </section>
     )
 }
-
-
-
 
 export default Article

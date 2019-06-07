@@ -14,8 +14,9 @@ const Documentation = () => {
             totalCount
             nodes {
                 title
+                slug
                 tags
-                publishDate
+                publishDate(formatString: "MMMM Do, YYYY")
                 description {
                     description
                 }
@@ -37,6 +38,7 @@ const Documentation = () => {
             {data.allContentfulSpecificDocumentation.nodes.map(node => {
                 return (
                     <Article
+                        slug={node.slug}
                         title={node.title}
                         desc={node.description.description}
                         publishDate={node.publishDate}
