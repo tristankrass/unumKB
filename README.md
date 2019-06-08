@@ -47,6 +47,7 @@ yarn serve
 - [ ] Add styles to landing page
 - [ ] Add Algolia Search
 - [ ] Make the header responsive
-- [ ] Style the form
+- [x] Style the form
 - [x] Add Gatsby offline plugin
 - [ ]  🚀 Deploy to  Netlify
+- [ ]  Add webhooks to build every time new content comes live
