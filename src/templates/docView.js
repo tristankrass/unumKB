@@ -1,34 +1,27 @@
 import React from "react"
 
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const DocView = () => {
-    console.log(
-        props
-    )
+const DocView = ({ data }) => {
+    const { title, body, tags, author } = data.contentfulSpecificDocumentation;
     return (
         <Layout>
-            <SEO title="FAQ" />
+            <SEO title={title} />
             <div>
-                <h1>
-                    {props}
-                </h1>
-                <p>
-                    dangerouslySetInnerHTML={{
-                        __html: post.html
-                    }}
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: body.body }
+                }
+                />
             </div>
         </Layout>
     )
 }
 export default DocView
+
 export const query = graphql`
     query($slug:String!){
-        contentfulSpecificDocumentation(slug: {eq: $slug}) {
-            title
+                contentfulSpecificDocumentation(slug: {eq: $slug}) {
+                title
             slug
             publishDate(formatString: "MMMM Do, YYYY")
             body {
@@ -37,6 +30,6 @@ export const query = graphql`
             author{
                 name
             }
-    }
-}
-`
+            }
+        }
+        `

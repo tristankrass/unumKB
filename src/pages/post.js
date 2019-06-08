@@ -1,35 +1,100 @@
-import React from 'react'
-import Layout from '../components/layout';
+import React, { Component } from 'react'
+import { navigateTo } from "gatsby-link"
 
-const Post = () => (
-    <Layout>
-        <section>
-            <h3>We are currently allowing admins to post new data</h3>
-            <p>Please send us a topic request</p>
-        </section>
-        <form name="contact" method="POST" data-netlify="true">
-            <p>
-                <label>
-                    Your Name: <input type="text" name="name" />
-                </label>
-            </p>
-            <p>
-                <label>Your Email: <input type="email" name="email" /></label>
-            </p>
-            <p>
-                <label>Your Role: <select name="role[]" multiple>
-                    <option value="leader">Leader</option>
-                    <option value="follower">Follower</option>
-                </select></label>
-            </p>
-            <p>
-                <label>Message: <textarea name="message"></textarea></label>
-            </p>
-            <p>
-                <button type="submit">Send</button>
-            </p>
-        </form>
-    </Layout>
-)
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
+function encode(data) {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+}
+class Post extends Component {
+    state = {}
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    handleSubmit = e => {
+        e.preventDefault()
+        const form = e.target
+        fetch('/', {
+            method: "POST",
+            headers: {
+                "Content-Type":
+                    "application/x-www-form-urlencoded"
+            },
+            body: encode({
+                "form-name": form.getAttribute("name"),
+                ...this.state
+            })
+        })
+            .then(() => navigateTo(form.getAttribute("action")))
+            .catch(error => alert(error))
+    }
+
+    render() {
+        return (
+            <Layout>
+                <SEO title="Contact" />
+                <section>
+                    <h3>We are currently allowing admins to post new data</h3>
+                    <p>Please send us a topic request</p>
+                </section>
+                <form
+                    name="contact"
+                    method="post"
+                    action="/"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={this.handleSubmit}
+                >
+
+                    <p>
+                        <label>
+                            Your Name:
+                             <input
+                                type="text"
+                                name="name"
+                                label="name"
+                                onChange={this.handleChange}
+                            />
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Your Email:
+                             <input
+                                onChange={this.handleChange}
+                                label="Email"
+                                type="email"
+                                name="email" />
+                        </label>
+                    </p>
+
+                    <p>
+                        <label>Message:
+                            <textarea
+                                onChange={this.handleChange} name="message"
+                                label="message"
+                                required
+                            >
+                            </textarea></label>
+                    </p>
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p hidden>
+                        <label>
+                            Don’t fill this out:{" "}
+                            <input name="bot-field" onChange={this.handleChange} />
+                        </label>
+                    </p>
+                    <p>
+                        <button type="submit">Send</button>
+                    </p>
+                </form>
+            </Layout >
+        )
+    }
+}
 export default Post
