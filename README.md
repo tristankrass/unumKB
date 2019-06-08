@@ -36,3 +36,17 @@ yarn serve
 
 ### Front end
 - Gatsby
+
+
+---
+
+### Todos
+
+- [ ] Make the header responsive
+- [ ] Finish Documentation page layout
+- [ ] Add styles to landing page
+- [ ] Add Algolia Search
+- [ ] Make the header responsive
+- [ ] Style the form
+- [x] Add Gatsby offline plugin
+- [ ]  🚀 Deploy to  Netlify
