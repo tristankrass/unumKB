@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "gatsby";
 
 
-const Article = ({ title, desc, tags, publishDate, author, slug }) => {
+const Article = ({ title, desc, tags, publishDate, author, slug, contentKey, mainId }) => {
 
     return (
-        <section>
+        <section key={mainId}>
             <Link to={`documentation/${slug}`}>
                 <h1>
                     {title}
@@ -16,7 +16,9 @@ const Article = ({ title, desc, tags, publishDate, author, slug }) => {
             </p>
             <ul>
                 {tags.map(tag => (
-                    <li>{tag}</li>
+                    <li key={contentKey}>
+                        {tag
+                        }</li>
                 ))}
             </ul>
             <p>Published by: {author}, At: {publishDate}</p>

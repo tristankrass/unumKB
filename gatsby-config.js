@@ -4,6 +4,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Unum Knowlede Base`,
+    short_name: `Unum`,
     description: `Simple Knowledge base for S&P 500 company unum insurance. The knowledge base helps workers to be better and more effective at their jobs.`,
     author: `Tristan Krass`,
   },

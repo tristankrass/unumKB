@@ -3,8 +3,9 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+// TODO: ADD tags, author
 const DocView = ({ data }) => {
-    const { title, body, tags, author } = data.contentfulSpecificDocumentation;
+    const { title, body } = data.contentfulSpecificDocumentation;
     return (
         <Layout>
             <SEO title={title} />

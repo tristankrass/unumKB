@@ -1,7 +1,10 @@
 # KB (Knowledde base) for enterprise
 
+
 ---
 Users of the app should be able to find, create, read and update the knowledge base.
+
+Currently deployed [here](https://unumkb.netlify.com)
 
 ###
 This KB is specifically tailored for [Unum](https://en.wikipedia.org/wiki/Unum) an S&P 500 company that sells insurance.
@@ -46,8 +49,9 @@ yarn serve
 - [ ] Finish Documentation page layout
 - [ ] Add styles to landing page
 - [ ] Add Algolia Search
-- [ ] Make the header responsive
+- [ ] Make the contact form responsive
+- [ ] Style the searchBox component
 - [x] Style the form
 - [x] Add Gatsby offline plugin
-- [ ]  🚀 Deploy to  Netlify
-- [ ]  Add webhooks to build every time new content comes live
+- [x]  🚀 Deploy to  Netlify
+- [x]  Add webhooks to build every time new content comes live

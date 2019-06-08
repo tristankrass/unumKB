@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -9,7 +9,7 @@ const Post = () => (
     <Layout>
         <SEO title="Contact" />
         <section>
-            <h2>We are currently allowing admins to post new data</h2>
+            <h2>We are currently allowing only admins to post new info</h2>
             <p>Please send us a topic request</p>
         </section>
         <hr />
