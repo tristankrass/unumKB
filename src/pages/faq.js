@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby";
+import FaqCard from "../components/faqCard";
 
 
 const Faq = () => {
@@ -23,21 +24,18 @@ const Faq = () => {
   return (
     <Layout>
       <SEO title="FAQ" />
-      <h1>FAQ</h1>
+      <h1>Frequently Asked Questions</h1>
+      <hr />
       <section>
         {data.allContentfulFaq.nodes.map((qa, id) => {
           return (
-            <div key={id}>
-              <h1>
-                {qa.question}
-              </h1>
-              <p>
-                {json.content[0].content[0].value}
-              </p>
-              <p>
-                {qa.updatedAt}
-              </p>
-            </div>
+            <FaqCard
+              key={id}
+              question={qa.question}
+              answer={qa.answer.json.content[0].content[0].value}
+              id={id}
+              time={qa.updatedAt}
+            />
           )
         })}
       </section>
