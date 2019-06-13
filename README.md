@@ -46,7 +46,7 @@ yarn serve
 ### Todos
 
 - [ ] Make the header responsive
-- [ ] Finish Documentation page layout
+- [x] Finish Documentation page layout
 - [ ] Add styles to landing page
 - [ ] Add Algolia Search
 - [ ] Make the contact form responsive

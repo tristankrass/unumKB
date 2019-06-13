@@ -10,7 +10,7 @@ const DocView = ({ data }) => {
         <Layout>
             <SEO title={title} />
             <div>
-                <p dangerouslySetInnerHTML={{ __html: body.body }
+                <p dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }
                 }
                 />
             </div>
@@ -21,12 +21,14 @@ export default DocView
 
 export const query = graphql`
     query($slug:String!){
-                contentfulSpecificDocumentation(slug: {eq: $slug}) {
-                title
+            contentfulSpecificDocumentation(slug: {eq: $slug}) {
+            title
             slug
             publishDate(formatString: "MMMM Do, YYYY")
-            body {
-                body
+             body {
+                childMarkdownRemark {
+                    html
+                }
             }
             author{
                 name
